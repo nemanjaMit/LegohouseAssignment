@@ -4,9 +4,9 @@ package FunctionLayer;
  * The purpose of LoginSampleException is to...
  * @author kasper
  */
-public class LegohusException extends Exception {
+public class LegohouseException extends Exception {
 
-    public LegohusException(String msg) {
+    public LegohouseException(String msg) {
         super(msg);
     }
     

@@ -1,6 +1,6 @@
 package PresentationLayer;
 
-import FunctionLayer.LegohusException;
+import FunctionLayer.LegohouseException;
 import java.util.HashMap;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -28,6 +28,6 @@ abstract class Command {
         return commands.getOrDefault(commandName, new UnknownCommand() );
     }
 
-    abstract String execute( HttpServletRequest request, HttpServletResponse response ) throws LegohusException;
+    abstract String execute( HttpServletRequest request, HttpServletResponse response ) throws LegohouseException;
 
 }

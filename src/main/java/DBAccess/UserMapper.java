@@ -1,6 +1,6 @@
 package DBAccess;
 
-import FunctionLayer.LegohusException;
+import FunctionLayer.LegohouseException;
 import FunctionLayer.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -17,7 +17,7 @@ import java.util.logging.Logger;
  */
 public class UserMapper {
 
-    public static void createUser( User user ) throws LegohusException {
+    public static void createUser( User user ) throws LegohouseException {
         try {
             Connection con = Connector.connection();
             String SQL = "INSERT INTO user (email, password, role) VALUES (?, ?, ?)";
@@ -31,11 +31,11 @@ public class UserMapper {
             int id = ids.getInt( 1 );
             user.setId( id );
         } catch ( SQLException | ClassNotFoundException ex ) {
-            throw new LegohusException( ex.getMessage() );
+            throw new LegohouseException( ex.getMessage() );
         }
     }
 
-    public static User login( String email, String password ) throws LegohusException {
+    public static User login( String email, String password ) throws LegohouseException {
         try {
             Connection con = Connector.connection();
             String SQL = "SELECT id, role FROM user "
@@ -51,10 +51,10 @@ public class UserMapper {
                 user.setId( id );
                 return user;
             } else {
-                throw new LegohusException( "Could not validate user" );
+                throw new LegohouseException( "Could not validate user" );
             }
         } catch ( ClassNotFoundException | SQLException ex ) {
-            throw new LegohusException(ex.getMessage());
+            throw new LegohouseException(ex.getMessage());
         }
     }
 
