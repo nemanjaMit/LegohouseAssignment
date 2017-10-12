@@ -15,11 +15,11 @@ CREATE TABLE `user` (
 
 DROP TABLE IF EXISTS `orders`;
 CREATE TABLE `orders` (
-	`orderid` int(11) NOT NULL AUTO_INCREMENT,
+    `orderid` int(11) NOT NULL AUTO_INCREMENT,
     `length` int(45) NOT NULL,
     `width` int(45) NOT NULL,
     `height` int(45) NOT NULL,
-    `status` DATETIME,
+    `date` DATETIME,
     PRIMARY KEY (`orderid`),
     foreign key (orderid) references user(userid));
 
