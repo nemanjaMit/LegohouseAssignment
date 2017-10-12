@@ -20,7 +20,7 @@
                     <li class="active"><a href="legohousebuilder.jsp">Builder</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="signup.jsp"><span class="glyphicon glyphicon-user"></span> Sign Up & Login</a></li>
+                    <li><a href="index.jsp"><span class="glyphicon glyphicon-user"></span> Sign Up & Login</a></li>
                 </ul>
             </div>
         </nav>
@@ -28,12 +28,10 @@
             <div class="row">
                 <div class="mx-auto text-center">
                     <h1>Order succesfull!</h1>
-                    <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
-                    <h3>Order #<c:out value="${user.getId()}"/></h3>
-                    
+                    <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>              
                     <hr>
                     
-                    <div class="row">
+                    <div>
                         <div class="col-sm-12">
                             <h3>Order Sumarry</h3>
                             <strong>Email: <c:out value="${user.getEmail()}"/></strong>

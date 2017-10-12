@@ -19,18 +19,52 @@
                     <li class="active"><a href="legohousebuilder.jsp">Builder</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="signup.jsp"><span class="glyphicon glyphicon-user"></span> Sign Up & Login</a></li>
+                    <li><a href="index.jsp"><span class="glyphicon glyphicon-user"></span> Sign Up & Login</a></li>
                 </ul>
             </div>
         </nav>
 
         <div class="container">
-            <div class="row">
+            <div>
                 <div class="mx-auto text-center">
 
-                    <h2>Welcome to the front page</h2>
+                    <h2>Welcome to the lego house register and login page!</h2>
 
-                    <p>HeffejohN</p><br>
+                    <p>This is the login & register page, so please read the information below!</p><br>
+                    <div>
+                        <div>
+                            <h3>Login</h3>
+                            <p>Fill out your email and your password to log on your account:</p>
+                            <center><form name="login" action="FrontController" method="POST">
+                                    <input type="hidden" name="command" value="login">
+                                    <div class="form-group" style="width: 250px">
+                                        <input class="form-control" type="email" name="email" placeholder="Email..." required autofocus>
+                                    </div>
+                                    <div class="form-group" style="width: 250px">
+                                        <input class="form-control" type="password" name="password" placeholder="Password..." required>
+                                    </div>
+                                    <button type="submit">Login</button>
+                                </form>
+                        </div> <br>
+
+                        <div>    
+                            <h3>Register</h3>
+                            <p>Fill out your details:</p>
+
+                            <center><form name="register" action="FrontController" method="POST">
+                                    <input type="hidden" name="command" value="register">
+                                    <div class="form-group" style="width: 250px">
+                                        <input class="form-control" type="email" name="email" placeholder="Email..." required>
+                                    </div>
+                                    <div class="form-group" style="width: 250px">
+                                        <input class="form-control" type="password" name="password1" placeholder="Password..." pattern=".{5,15}" title="Password must be from 5 to 15 characters!" required>
+                                    </div>
+                                    <div class="form-group" style="width: 250px">
+                                        <input class="form-control" type="password" name="password2" placeholder="Retype Password....." pattern=".{5,15}" title="Password must be from 5 to 15 characters!" required>
+                                    </div>
+                                    <button type="submit">Register</button>
+                                </form>   
+                        </div>
                     </div>
                 </div>
             </div>

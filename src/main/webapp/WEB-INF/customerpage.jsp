@@ -23,7 +23,7 @@
         </nav>
 
         <div class="container">
-            <div class="row">
+            <div>
                 <div class="mx-auto text-center">
 
                     <h2>Welcome to the customers page</h2>

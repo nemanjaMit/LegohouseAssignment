@@ -39,7 +39,7 @@ public class OrderMapper {
         }
     }
     public static ArrayList<Order> getAllOrders(User user) throws LegohouseException {
-        ArrayList<Order> orderList;
+        ArrayList<Order> list;
         try {
             Connection connection = Connector.connection();
             String SQL = "SELECT * FROM `orders` WHERE userid = ?";
@@ -48,7 +48,7 @@ public class OrderMapper {
             statement.setInt(1, user.getId());
             ResultSet rs = statement.executeQuery();
             
-            orderList = new ArrayList<>();
+            list = new ArrayList<>();
             
             while (rs.next()) {
                 int id = rs.getInt("id");
@@ -59,7 +59,7 @@ public class OrderMapper {
                 LocalDate date = rs.getObject("date", LocalDate.class);
                 
             }
-            return orderList;
+            return list;
         }
         catch (ClassNotFoundException | SQLException ex) {
             throw new LegohouseException((ex.getMessage()));

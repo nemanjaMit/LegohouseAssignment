@@ -1,6 +1,9 @@
 
 package FunctionLayer;
 
+import java.sql.Date;
+import java.time.LocalDate;
+
 
 public class Order {
     
@@ -9,6 +12,13 @@ public class Order {
     private int width;
     private int height;
     private String date;
+
+    public Order(int userid, int length, int width, int height) {
+        this.userid = userid;
+        this.length = length;
+        this.width = width;
+        this.height = height;
+    }
     
 
     public int getUserid() {

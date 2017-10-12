@@ -19,14 +19,13 @@
                     <li class="active"><a href="legohousebuilder.jsp">Builder</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="signup.jsp"><span class="glyphicon glyphicon-user"></span> Sign Up & Login</a></li>
+                    <li><a href="index.jsp"><span class="glyphicon glyphicon-user"></span> Sign Up & Login</a></li>
                 </ul>
             </div>
         </nav>
         <div class="container">
-            <div class="row">
-                <div class="mx-auto text-center">
-                    
+            <div>
+                <div class="mx-auto text-center">                   
                     <h2>Lego house builder</h2>
 
                     <p>This is the page where you can build your own lego house.</p><br>
@@ -37,23 +36,23 @@
                     <p>5 - Enjoy your own selfconstructed legohouse!</p><br>
                     <div>
                         <center><form name="order" action="FrontController" method="POST">
-                                <input type="hidden" name="command" value="placeOrder">
+                                <input type="hidden" name="command" value="PlaceOrder">
                                 <div class="form-group" style="width: 200px">
                                     <b>Length:</b>
                                     <input class="form-control" type="number" name="length" min="1" max="100" required autofocus>
                                 </div>
                                 <div class="form-group" style="width: 200px">
                                     <b>Width:</b>
-                                    <input class="form-control" type="number" name="length" min="1" max="100" required autofocus>
+                                    <input class="form-control" type="number" name="width" min="1" max="100" required autofocus>
                                 </div>
                                 <div class="form-group" style="width: 200px">
                                     <b>Height:</b>
-                                    <input class="form-control" type="number" name="length" min="1" max="100" required autofocus><br>
+                                    <input class="form-control" type="number" name="height" min="1" max="100" required autofocus><br>
                                     <button type="submit">Order</button><br><br>
                                     
                                     <br><img src="media/builder.png" alt="Lego builder" height="250" width="250">
-                            </form>
                     </div> <br><br>
+                    </form>
                 </div>
             </div>
         </div>

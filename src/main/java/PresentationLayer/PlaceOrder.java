@@ -18,8 +18,9 @@ public class PlaceOrder extends Command {
         User user = (User)session.getAttribute("user");
         ArrayList<Order> orderId = OrderMapper.getAllOrders(user);
         OrderMapper.getAllOrders(user);
+        
+        return user.getRole() + "page";
     
-        return null;
     }
     
 }

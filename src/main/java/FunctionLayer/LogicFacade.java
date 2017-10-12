@@ -1,5 +1,6 @@
 package FunctionLayer;
 
+import DBAccess.OrderMapper;
 import DBAccess.UserMapper;
 
 /**
@@ -17,5 +18,13 @@ public class LogicFacade {
         UserMapper.createUser( user );
         return user;
     }
+    public static Order createOrder(int length, int width, int height, int userId) throws LegohouseException, ClassNotFoundException {
+        Order order = new Order(length, width, height, userId);
+        OrderMapper.createOrder(order);
+        
+        return order; 
+        
+    }
+        
 
 }
