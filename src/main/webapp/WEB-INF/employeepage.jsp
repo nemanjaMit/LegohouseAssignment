@@ -13,28 +13,50 @@
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="#">Lego house</a>
+                    <a class="navbar-brand" href="index.jsp">Lego house</a>
                 </div>
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#index.jsp">Home</a></li>
-                    <li><a href="#">Page 1</a></li>
+                    <li class="active"><a href="legohousebuilder.jsp">Builder</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="index.jsp"><span class="glyphicon glyphicon-user"></span> Sign Up & Login</a></li>
                 </ul>
             </div>
         </nav>
-
         <div class="container">
-            <div class="row">
-                <div class="mx-auto text-center">
+            <div>
+                <div class="mx-auto text-center">                   
+                    <h2>Lego house builder</h2>
 
-                    <h2>Welcome to the employees page</h2>
-
-                    <p>Add text, buttons and so on here...</p><br>
-
-                            </form>   
-                        </div>
-                    </div>
+                    <p>This is the page where you can build your own lego house.</p><br>
+                    <p>1 - Make sure to insert the correct length, width and height for your own lego house </p>
+                    <p>2 - You can use your keyboard to insert values or you can use the arrows on the right side of the bars</p>
+                    <p>3 - The minimum value is 1 meter and the maximum is at 100 meters</p>
+                    <p>4 - Click on the 'Order' button as soon as all the values are entered</p>
+                    <p>5 - Enjoy your own selfconstructed legohouse!</p><br>
+                    <div>
+                        <center><form name="order" action="FrontController" method="POST">
+                                <input type="hidden" name="command" value="PlaceOrder">
+                                <div class="form-group" style="width: 200px">
+                                    <b>Length:</b>
+                                    <input class="form-control" type="number" name="length" min="1" max="100" required autofocus>
+                                </div>
+                                <div class="form-group" style="width: 200px">
+                                    <b>Width:</b>
+                                    <input class="form-control" type="number" name="width" min="1" max="100" required autofocus>
+                                </div>
+                                <div class="form-group" style="width: 200px">
+                                    <b>Height:</b>
+                                    <input class="form-control" type="number" name="height" min="1" max="100" required autofocus><br>
+                                    <button type="submit">Order</button><br><br>
+                                    
+                                    <br><img src="media/builder.png" alt="Lego builder" height="250" width="250">
+                    </div> <br><br>
+                    </form>
                 </div>
             </div>
-    </body>
+        </div>
+    </div>
+</body>
 </html>
 </div>
