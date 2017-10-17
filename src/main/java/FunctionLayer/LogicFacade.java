@@ -18,11 +18,17 @@ public class LogicFacade {
         UserMapper.createUser( user );
         return user;
     }
-    public static Order createOrder(int length, int width, int height, int userId) throws LegohouseException, ClassNotFoundException {
-        Order order = new Order(length, width, height, userId);
+    public static Order createOrder(User user, int length, int width, int height) throws LegohouseException, ClassNotFoundException {
+        Order order = new Order(user.getId(), length, width, height);
         OrderMapper.createOrder(order);
+        user.putOrderInMap(order);
+        
+        House house = new House(length, width, height);
+        order.setHouse(house);
         
         return order; 
+        
+        
         
     }
         

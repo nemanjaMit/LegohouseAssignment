@@ -1,7 +1,6 @@
 
 package FunctionLayer;
 
-import java.sql.Date;
 import java.time.LocalDate;
 
 
@@ -11,7 +10,10 @@ public class Order {
     private int length;
     private int width;
     private int height;
-    private String date;
+    private LocalDate recievedDate;
+    private LocalDate shippedDate;
+    
+    private House house;
 
     public Order(int userid, int length, int width, int height) {
         this.userid = userid;
@@ -20,7 +22,6 @@ public class Order {
         this.height = height;
     }
     
-
     public int getUserid() {
         return userid;
     }
@@ -53,19 +54,28 @@ public class Order {
         this.height = height;
     }
 
-    public String getDate() {
-        return date;
+    public House getHouse() {
+        return house;
+    }
+    public void setHouse(House house) {
+        this.house = house;
+    }   
+
+    public LocalDate getRecievedDate() {
+        return recievedDate;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setRecievedDate(LocalDate recievedDate) {
+        this.recievedDate = recievedDate;
     }
 
-    @Override
-    public String toString() {
-        return "Order{" + "userid=" + userid + ", length=" + length + ", width=" + width + ", height=" + height + ", date=" + date + '}';
+    public LocalDate getShippedDate() {
+        return shippedDate;
     }
-    
+
+    public void setShippedDate(LocalDate shippedDate) {
+        this.shippedDate = shippedDate;
+    }
     
     
 }

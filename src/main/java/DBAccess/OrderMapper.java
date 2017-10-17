@@ -26,7 +26,7 @@ public class OrderMapper {
             statement.setInt(2, order.getLength());
             statement.setInt(3, order.getWidth());
             statement.setInt(4, order.getHeight());
-            statement.setObject(5, order.getDate());
+            statement.setObject(5, order.getRecievedDate().toString());
             statement.executeUpdate();
             
             ResultSet rsId = statement.getGeneratedKeys();
