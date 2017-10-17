@@ -1,6 +1,6 @@
 package PresentationLayer;
 
-import FunctionLayer.Exceptions.PlaceOrderException;
+import Exceptions.PlaceOrderException;
 import FunctionLayer.LogicFacade;
 import FunctionLayer.Order;
 import FunctionLayer.User;

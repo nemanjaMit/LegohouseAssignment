@@ -1,7 +1,7 @@
 package PresentationLayer;
 
-import FunctionLayer.Exceptions.LegohouseException;
-import FunctionLayer.Exceptions.PlaceOrderException;
+import Exceptions.LegohouseException;
+import Exceptions.PlaceOrderException;
 
 import java.io.IOException;
 import javax.servlet.annotation.WebServlet;
@@ -28,7 +28,7 @@ public class FrontController extends HttpServlet {
             request.getRequestDispatcher("index.jsp").forward(request, response);
         } catch (PlaceOrderException ex) {
             request.setAttribute("error", ex.getMessage());
-            request.getRequestDispatcher("WEB-INF/jsppages/builder.jsp").forward(request, response);
+            request.getRequestDispatcher("WEB-INF/jsppages/legohousebuilder.jsp").forward(request, response);
         }
     }
 

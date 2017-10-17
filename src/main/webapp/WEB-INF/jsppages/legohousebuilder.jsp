@@ -16,9 +16,7 @@
                 </div>
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="legohousebuilder.jsp">Builder</a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="index.jsp"><span class="glyphicon glyphicon-user"></span> Sign Up & Login</a></li>
+                    <li class="active"><a href="orders.jsp">Orders</a></li>
                 </ul>
             </div>
         </nav>
@@ -48,14 +46,12 @@
                                     <b>Height:</b>
                                     <input class="form-control" type="number" name="height" min="4" max="100" required autofocus><br>
                                     <button type="submit">Order</button><br><br>
-                                    
+
                                     <br><img src="media/builder.png" alt="Lego builder" height="250" width="250">
-                    </div> <br><br>
-                    </form>
+                                </div> <br><br>
+                            </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</body>
 </html>
-</div>

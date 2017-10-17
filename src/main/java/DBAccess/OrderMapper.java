@@ -1,7 +1,7 @@
 package DBAccess;
 
-import FunctionLayer.Exceptions.LegohouseException;
-import FunctionLayer.Exceptions.PlaceOrderException;
+import Exceptions.LegohouseException;
+import Exceptions.PlaceOrderException;
 
 import FunctionLayer.Order;
 import FunctionLayer.User;

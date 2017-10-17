@@ -3,8 +3,9 @@ package FunctionLayer;
 
 import DBAccess.UserMapper;
 import DBAccess.OrderMapper;
-import FunctionLayer.Exceptions.LegohouseException;
-import FunctionLayer.Exceptions.PlaceOrderException;
+import Exceptions.LegohouseException;
+import Exceptions.PlaceOrderException;
+import java.util.List;
 
 
 public class LogicFacade {
@@ -28,5 +29,9 @@ public class LogicFacade {
         order.setHouse(house); // Assign the house to the order.
         
         return order;
+    }
+        public static List<Order> getUserOrders(User user) throws LegohouseException {
+        List<Order> orderList = OrderMapper.getUserOrders(user);
+        return orderList;
     }
 }

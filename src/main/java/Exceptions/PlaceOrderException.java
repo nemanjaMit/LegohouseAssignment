@@ -1,5 +1,5 @@
 
-package FunctionLayer.Exceptions;
+package Exceptions;
 
 
 public class PlaceOrderException extends Exception {

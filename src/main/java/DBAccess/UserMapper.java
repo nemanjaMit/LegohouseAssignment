@@ -1,6 +1,6 @@
 package DBAccess;
 
-import FunctionLayer.Exceptions.LegohouseException;
+import Exceptions.LegohouseException;
 import FunctionLayer.User;
 
 import java.util.ArrayList;

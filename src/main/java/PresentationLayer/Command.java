@@ -1,7 +1,7 @@
 package PresentationLayer;
 
-import FunctionLayer.Exceptions.LegohouseException;
-import FunctionLayer.Exceptions.PlaceOrderException;
+import Exceptions.LegohouseException;
+import Exceptions.PlaceOrderException;
 
 import java.util.HashMap;
 import javax.servlet.http.HttpServletRequest;
@@ -16,6 +16,7 @@ abstract class Command {
         commands.put("login", new Login());
         commands.put("register", new Register());
         commands.put("PlaceOrder", new PlaceOrder());
+        commands.put("SeeAllOrders", new SeeAllOrders());
     }
 
     static Command from(HttpServletRequest request) {

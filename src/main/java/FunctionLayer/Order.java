@@ -14,7 +14,7 @@ public class Order {
     
     private House house; // Assign a house to the order.
 
-    public Order(int id, int userId, int length, int width, int height, LocalDate receivedDate, LocalDate shippedDate) { // When creating order from database.
+    public Order(int id, int userId, int length, int width, int height, LocalDate receivedDate, LocalDate shippedDate) {
         this.id = id;
         this.userId = userId;
         this.length = length;
@@ -24,12 +24,12 @@ public class Order {
         this.shippedDate = shippedDate;
     }
     
-    public Order(int userId, int length, int width, int height) { // When user creates order.
+    public Order(int userId, int length, int width, int height) { 
         this.userId = userId;
         this.length = length;
         this.width = width;
         this.height = height;
-        this.receivedDate = LocalDate.now(); // Create a date upon object creation.
+        this.receivedDate = LocalDate.now(); 
     }
 
     public int getId() {
