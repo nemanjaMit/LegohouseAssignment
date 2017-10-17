@@ -2,23 +2,24 @@ package DBAccess;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.SQLException;
-
 
 public class Connector {
 
-    private static final String url = "jdbc:mysql://46.101.253.149:3306/useradmin";
-    private static final String username = "doorkeeper";
-    private static final String password = "bank3*andyouarein";
-
     private static Connection singleton;
 
-    public static Connection connection() throws ClassNotFoundException, SQLException  {
-        if ( singleton == null ) {
-            Class.forName( "com.mysql.jdbc.Driver" );
-            singleton = DriverManager.getConnection( url, username, password );
+    private static final String IP = "46.101.250.238";
+    private static final String PORT = "3306";
+    private static final String DATABASE = "legohouse_db";
+    private static final String USERNAME = "dc";
+    private static final String PASSWORD = "sejletur";
+    
+    private static final String URL = "jdbc:mysql://" + IP + ":" + PORT + "/" + DATABASE;
+
+    public static Connection getConnection() throws Exception {
+        if (singleton == null || singleton.isClosed()) {
+            Class.forName("com.mysql.jdbc.Driver");
+            singleton = DriverManager.getConnection(URL, USERNAME, PASSWORD);
         }
         return singleton;
     }
-
 }

@@ -1,6 +1,6 @@
 package PresentationLayer;
 
-import FunctionLayer.LegohouseException;
+import FunctionLayer.Exceptions.LegohouseException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 

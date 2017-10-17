@@ -1,33 +1,51 @@
-
 package FunctionLayer;
 
 import java.time.LocalDate;
 
-
 public class Order {
-    
-    private int userid;
+
+    private int id;
+    private int userId;
     private int length;
     private int width;
     private int height;
-    private LocalDate recievedDate;
+    private LocalDate receivedDate;
     private LocalDate shippedDate;
     
-    private House house;
+    private House house; // Assign a house to the order.
 
-    public Order(int userid, int length, int width, int height) {
-        this.userid = userid;
+    public Order(int id, int userId, int length, int width, int height, LocalDate receivedDate, LocalDate shippedDate) { // When creating order from database.
+        this.id = id;
+        this.userId = userId;
         this.length = length;
         this.width = width;
         this.height = height;
+        this.receivedDate = receivedDate;
+        this.shippedDate = shippedDate;
     }
     
-    public int getUserid() {
-        return userid;
+    public Order(int userId, int length, int width, int height) { // When user creates order.
+        this.userId = userId;
+        this.length = length;
+        this.width = width;
+        this.height = height;
+        this.receivedDate = LocalDate.now(); // Create a date upon object creation.
     }
 
-    public void setUserid(int userid) {
-        this.userid = userid;
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public int getLength() {
@@ -54,19 +72,12 @@ public class Order {
         this.height = height;
     }
 
-    public House getHouse() {
-        return house;
-    }
-    public void setHouse(House house) {
-        this.house = house;
-    }   
-
-    public LocalDate getRecievedDate() {
-        return recievedDate;
+    public LocalDate getReceivedDate() {
+        return receivedDate;
     }
 
-    public void setRecievedDate(LocalDate recievedDate) {
-        this.recievedDate = recievedDate;
+    public void setReceivedDate(LocalDate receivedDate) {
+        this.receivedDate = receivedDate;
     }
 
     public LocalDate getShippedDate() {
@@ -76,6 +87,12 @@ public class Order {
     public void setShippedDate(LocalDate shippedDate) {
         this.shippedDate = shippedDate;
     }
-    
-    
+
+    public House getHouse() {
+        return house;
+    }
+
+    public void setHouse(House house) {
+        this.house = house;
+    }
 }

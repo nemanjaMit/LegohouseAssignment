@@ -1,69 +1,76 @@
-
 package DBAccess;
 
-import FunctionLayer.LegohouseException;
+import FunctionLayer.Exceptions.LegohouseException;
+import FunctionLayer.Exceptions.PlaceOrderException;
+
 import FunctionLayer.Order;
 import FunctionLayer.User;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.time.LocalDate;
+import java.sql.Date;
 
 import java.sql.Connection;
 import java.sql.Statement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 
 public class OrderMapper {
 
-    public static void createOrder(Order order) throws LegohouseException, ClassNotFoundException {
+    public static void createOrder(Order order) throws PlaceOrderException {
         try {
-            Connection connection = Connector.connection();
-            String SQL = "INSERT INTO `orders` (userid, length, width, height, date) VALUES (?, ?, ?, ?, ?)";
+            Connection connection = Connector.getConnection();
+            String SQL = "INSERT INTO `order` (userId, length, width, height, receivedDate) VALUES (?, ?, ?, ?, ?)";
             PreparedStatement statement = connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
-            
-            statement.setInt(1, order.getUserid());
+
+            statement.setInt(1, order.getUserId());
             statement.setInt(2, order.getLength());
             statement.setInt(3, order.getWidth());
             statement.setInt(4, order.getHeight());
-            statement.setObject(5, order.getRecievedDate().toString());
+            statement.setObject(5, order.getReceivedDate().toString());
             statement.executeUpdate();
-            
+
             ResultSet rsId = statement.getGeneratedKeys();
             rsId.next();
             int id = rsId.getInt(1);
-            
-        }
-        catch (SQLException ex) {
-            throw new LegohouseException(ex.getMessage());
+            order.setId(id);
+        } catch (Exception ex) {
+            throw new PlaceOrderException(ex.getMessage());
         }
     }
-    public static ArrayList<Order> getAllOrders(User user) throws LegohouseException {
-        ArrayList<Order> list;
+
+    public static List<Order> getUserOrders(User user) throws LegohouseException {
+        List<Order> orderList;
         try {
-            Connection connection = Connector.connection();
-            String SQL = "SELECT * FROM `orders` WHERE userid = ?";
+            Connection connection = Connector.getConnection();
+            String SQL = "SELECT * FROM `order` WHERE userId = ?";
             PreparedStatement statement = connection.prepareStatement(SQL);
-            
+
             statement.setInt(1, user.getId());
             ResultSet rs = statement.executeQuery();
-            
-            list = new ArrayList<>();
-            
+
+            orderList = new ArrayList<>();
+
             while (rs.next()) {
                 int id = rs.getInt("id");
-                int userID = rs.getInt("user");
+                int userId = rs.getInt("userId");
                 int length = rs.getInt("length");
                 int width = rs.getInt("width");
                 int height = rs.getInt("height");
-                LocalDate date = rs.getObject("date", LocalDate.class);
-                
+                LocalDate receivedDate = rs.getObject("receivedDate", LocalDate.class);
+                Object shippedDate = rs.getObject("shippedDate");
+
+                if (shippedDate == null) {
+                    orderList.add(new Order(id, userId, length, width, height, receivedDate, null));
+                } else {
+                    orderList.add(new Order(id, userId, length, width, height, receivedDate, ((Date) shippedDate).toLocalDate()));
+                }
             }
-            return list;
-        }
-        catch (ClassNotFoundException | SQLException ex) {
-            throw new LegohouseException((ex.getMessage()));
+
+            return orderList;
+        } catch (Exception ex) {
+            throw new LegohouseException(ex.getMessage());
         }
     }
 }
-        

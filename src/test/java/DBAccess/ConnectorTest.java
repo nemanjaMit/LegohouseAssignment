@@ -21,7 +21,7 @@ public class ConnectorTest {
 
     @Test
     public void canConnect() throws Exception {
-        Connection con = Connector.connection();
+        Connection con = Connector.getConnection();
         assertTrue(con != null);
         con.close();
     }

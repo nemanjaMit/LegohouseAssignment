@@ -23,7 +23,7 @@
             <div>
                 <div class="mx-auto text-center">
 
-                    <h2>Confirmation page!</h2>
+                    <h2>Orderlist page!</h2>
 
             </div>
     </body>
