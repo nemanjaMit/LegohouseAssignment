@@ -16,7 +16,9 @@ abstract class Command {
         commands.put("login", new Login());
         commands.put("register", new Register());
         commands.put("PlaceOrder", new PlaceOrder());
-        commands.put("SeeAllOrders", new SeeAllOrders());
+        
+        commands.put("orders", new Forwarder());
+        commands.put("legohousebuilder", new Forwarder());
     }
 
     static Command from(HttpServletRequest request) {

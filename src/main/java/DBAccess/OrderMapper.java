@@ -73,4 +73,37 @@ public class OrderMapper {
             throw new LegohouseException(ex.getMessage());
         }
     }
+    public static List<Order> getAllOrders() throws LegohouseException {
+        List<Order> orderList;
+        try {
+            Connection connection = Connector.getConnection();
+            String SQL = "SELECT * FROM `order`";
+            Statement statement = connection.createStatement();
+
+            ResultSet rs = statement.executeQuery(SQL);
+
+            orderList = new ArrayList<>();
+
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                int userId = rs.getInt("userId");
+                int length = rs.getInt("length");
+                int width = rs.getInt("width");
+                int height = rs.getInt("height");
+                LocalDate receivedDate = rs.getObject("receivedDate", LocalDate.class);
+                Object shippedDate = rs.getObject("shippedDate"); 
+
+                if (shippedDate == null) {
+                    orderList.add(new Order(id, userId, length, width, height, receivedDate, null));
+                } else {
+                    orderList.add(new Order(id, userId, length, width, height, receivedDate, ((Date) shippedDate).toLocalDate()));
+                }
+            }
+
+            return orderList;
+        } catch (Exception ex) {
+            throw new LegohouseException(ex.getMessage());
+        }
+    }
+    
 }

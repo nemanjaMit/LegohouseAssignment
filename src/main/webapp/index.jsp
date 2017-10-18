@@ -1,3 +1,10 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
+
+<c:if test="${not empty user}">
+    <jsp:forward page="WEB-INF/jsppages/legohousebuilder.jsp" />
+</c:if>
+
 <html lang="en">
     <head>
         <title>Legohus</title>
@@ -62,6 +69,6 @@
                     </div>
                 </div>
             </div>
+        </div>
     </body>
 </html>
-</div>

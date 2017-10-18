@@ -18,58 +18,48 @@
                     <a class="navbar-brand" href="index.jsp">Lego house</a>
                 </div>
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="legohousebuilder.jsp">Builder</a></li>
-                    <li class="active"><a href="orders.jsp">Orders</a></li>
+                    <li class="active"><a href="FrontController?command=legohousebuilder">Builder</a></li>
+                    <li class="active"><a href="FrontController?command=orders">Orders</a></li>
                 </ul>
             </div>
         </nav>
+        
 
         <div class="container">
             <div class="row">
                 <div class="mx-auto text-center">
-                    <h1 class="mt-3">My Orders</h1>
+                    <h3><strong>Orderdetails for</strong></h3>
+                    <h4><c:out value="${user.getEmail()}"/></h4>
+                    
+                    <br><h4>Here you can see all your placed orders!</h4 >
 
                     <hr>
-
-                    <c:if test="${empty orderList}">
-                        <h3>You have no submitted orders!</h3>
-                    </c:if>
-
-                    <c:if test="${not empty orderList}">                  
-                        <table class="table table-responsive table-striped table-bordered">
+            
+                        <table class="table">
                             <thead class="thead-inverse">
                                 <tr>
                                     <th class="text-center"><strong>Order ID</strong></th>
                                     <th class="text-center"><strong>Length</strong></th>
                                     <th class="text-center"><strong>Width</strong></th>
                                     <th class="text-center"><strong>Height</strong></th>
-                                    <th class="text-center"><strong>Submitted</strong></th>
-                                    <th class="text-center"><strong>Shipped</strong></th>
+                                    <th class="text-center"><strong>Order Submitted</strong></th>
                                 </tr>
                             </thead>
                             <tbody>
-                            <c:forEach items="${orderList}" var="order">    
+                            <c:forEach items="${orders}" var="order">    
                                 <tr>
-                                    <td class="text-center"><strong><c:out value="${order.getId()}"/></strong></td>
-                                    <td class="text-center"><strong><c:out value="${order.getLength()}"/></strong></td>
-                                    <td class="text-center"><strong><c:out value="${order.getWidth()}"/></strong></td>
-                                    <td class="text-center"><strong><c:out value="${order.getHeight()}"/></strong></td>
-                                    <td class="text-center"><strong><c:out value="${order.getReceivedDate()}"/></strong></td>
-
-                                <c:if test="${order.getShippedDate() == null}">     
-                                    <td class="text-center" id="notShipped"><strong><c:out value="Not shipped yet"/></strong></td>
-                                </c:if>
-
-                                <c:if test="${order.getShippedDate() != null}">  
-                                    <td class="text-center" id="shipped"><strong><c:out value="${order.getShippedDate()}"/></strong></td>
-                                </c:if>
-
+                                    <td class="text-center"><c:out value="${order.getId()}"/></td>
+                                    <td class="text-center"><c:out value="${order.getLength()}"/></td>
+                                    <td class="text-center"><c:out value="${order.getWidth()}"/></td>
+                                    <td class="text-center"><c:out value="${order.getHeight()}"/></td>
+                                    <td class="text-center"><c:out value="${order.getReceivedDate()}"/></td>
                                 </tr>
                             </c:forEach> 
                             </tbody>
                         </table>
-                    </c:if>
                 </div>
             </div>
         </div>
+                    
+    </body>
 </html>

@@ -15,11 +15,13 @@
                     <a class="navbar-brand" href="index.jsp">Lego house</a>
                 </div>
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="legohousebuilder.jsp">Builder</a></li>
-                    <li class="active"><a href="orders.jsp">Orders</a></li>
+                    <li class="active"><a href="FrontController?command=legohousebuilder">Builder</a></li>
+                    <li class="active"><a href="FrontController?command=orders">Orders</a></li>
                 </ul>
+                
             </div>
         </nav>
+
         <div class="container">
             <div>
                 <div class="mx-auto text-center">                   
@@ -36,15 +38,15 @@
                                 <input type="hidden" name="command" value="PlaceOrder">
                                 <div class="form-group" style="width: 200px">
                                     <b>Length:</b>
-                                    <input class="form-control" type="number" name="length" min="1" max="100" required autofocus>
+                                    <input class="form-control" type="number" name="length" min="4" value="4" max="100" required autofocus>
                                 </div>
                                 <div class="form-group" style="width: 200px">
                                     <b>Width:</b>
-                                    <input class="form-control" type="number" name="width" min="4" max="100" required autofocus>
+                                    <input class="form-control" type="number" name="width" min="4" value="4" max="100" required autofocus>
                                 </div>
                                 <div class="form-group" style="width: 200px">
                                     <b>Height:</b>
-                                    <input class="form-control" type="number" name="height" min="4" max="100" required autofocus><br>
+                                    <input class="form-control" type="number" name="height" min="1" value="1" max="100" required autofocus><br>
                                     <button type="submit">Order</button><br><br>
 
                                     <br><img src="media/builder.png" alt="Lego builder" height="250" width="250">
@@ -54,4 +56,5 @@
                 </div>
             </div>
         </div>
+    </body>
 </html>

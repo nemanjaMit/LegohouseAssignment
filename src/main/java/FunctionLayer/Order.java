@@ -12,7 +12,7 @@ public class Order {
     private LocalDate receivedDate;
     private LocalDate shippedDate;
     
-    private House house; // Assign a house to the order.
+    private House house;
 
     public Order(int id, int userId, int length, int width, int height, LocalDate receivedDate, LocalDate shippedDate) {
         this.id = id;
