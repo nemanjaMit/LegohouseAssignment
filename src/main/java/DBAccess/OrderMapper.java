@@ -40,7 +40,7 @@ public class OrderMapper {
         }
     }
 
-    public static List<Order> getUserOrders(User user) throws LegohouseException {
+    public static List<Order> getAllUserOrders(User user) throws LegohouseException {
         List<Order> orderList;
         try {
             Connection connection = Connector.getConnection();
@@ -59,13 +59,8 @@ public class OrderMapper {
                 int width = rs.getInt("width");
                 int height = rs.getInt("height");
                 LocalDate receivedDate = rs.getObject("receivedDate", LocalDate.class);
-                Object shippedDate = rs.getObject("shippedDate");
 
-                if (shippedDate == null) {
-                    orderList.add(new Order(id, userId, length, width, height, receivedDate, null));
-                } else {
-                    orderList.add(new Order(id, userId, length, width, height, receivedDate, ((Date) shippedDate).toLocalDate()));
-                }
+                orderList.add(new Order(id, userId, length, width, height, receivedDate));
             }
 
             return orderList;
@@ -91,13 +86,8 @@ public class OrderMapper {
                 int width = rs.getInt("width");
                 int height = rs.getInt("height");
                 LocalDate receivedDate = rs.getObject("receivedDate", LocalDate.class);
-                Object shippedDate = rs.getObject("shippedDate"); 
-
-                if (shippedDate == null) {
-                    orderList.add(new Order(id, userId, length, width, height, receivedDate, null));
-                } else {
-                    orderList.add(new Order(id, userId, length, width, height, receivedDate, ((Date) shippedDate).toLocalDate()));
-                }
+                
+                orderList.add(new Order(id, userId, length, width, height, receivedDate));
             }
 
             return orderList;

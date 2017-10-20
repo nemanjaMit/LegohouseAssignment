@@ -105,7 +105,7 @@
                     </table>
 
                     <br><h4><strong>Total: </strong><c:out value="${order.getHouse().getTotalBricks()}"/> bricks.</h4>
-                    
+
                     <form>
                         <br><button type="submit" name="command" value="orders">View all orders</button>
                     </form>

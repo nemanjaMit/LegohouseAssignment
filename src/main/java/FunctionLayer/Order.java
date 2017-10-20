@@ -10,18 +10,16 @@ public class Order {
     private int width;
     private int height;
     private LocalDate receivedDate;
-    private LocalDate shippedDate;
     
     private House house;
 
-    public Order(int id, int userId, int length, int width, int height, LocalDate receivedDate, LocalDate shippedDate) {
+    public Order(int id, int userId, int length, int width, int height, LocalDate receivedDate) {
         this.id = id;
         this.userId = userId;
         this.length = length;
         this.width = width;
         this.height = height;
         this.receivedDate = receivedDate;
-        this.shippedDate = shippedDate;
     }
     
     public Order(int userId, int length, int width, int height) { 
@@ -80,14 +78,6 @@ public class Order {
         this.receivedDate = receivedDate;
     }
 
-    public LocalDate getShippedDate() {
-        return shippedDate;
-    }
-
-    public void setShippedDate(LocalDate shippedDate) {
-        this.shippedDate = shippedDate;
-    }
-
     public House getHouse() {
         return house;
     }
@@ -95,4 +85,5 @@ public class Order {
     public void setHouse(House house) {
         this.house = house;
     }
+    
 }

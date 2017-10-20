@@ -18,20 +18,20 @@ public class UserMapper {
         try {
             Connection connection = Connector.getConnection();
             String SQL = "INSERT INTO `user` (email, password, role) VALUES (?, ?, ?)";
-            PreparedStatement statement = connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS); // Get the auto incremented id from the database with Statement.RETURN_GENERATED_KEYS.
+            PreparedStatement statement = connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
 
             statement.setString(1, user.getEmail());
             statement.setString(2, user.getPassword());
             statement.setString(3, user.getRole());
             statement.executeUpdate();
             
-            ResultSet rsId = statement.getGeneratedKeys(); // Get the 'id' from the INSERT INTO operation.
+            ResultSet rsId = statement.getGeneratedKeys();
             rsId.next();
             int id = rsId.getInt(1);
             user.setId(id);
         } 
         catch (SQLException ex) {
-           if (ex.getSQLState().startsWith("23")) { // ErrorCode 23: Duplicate Primary Key.
+           if (ex.getSQLState().startsWith("23")) {
                 throw new LegohouseException("Email already exists!");
            }
         }

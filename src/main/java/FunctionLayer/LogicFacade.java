@@ -25,13 +25,13 @@ public class LogicFacade {
         OrderMapper.createOrder(order);
         user.putOrderIntoMap(order);
         
-        House house = new House(length, width, height); // Create house (calculating bill of materials).
-        order.setHouse(house); // Assign the house to the order.
+        House house = new House(length, width, height);
+        order.setHouse(house);
         
         return order;
     }
         public static List<Order> getUserOrders(User user) throws LegohouseException {
-        List<Order> orderList = OrderMapper.getUserOrders(user);
+        List<Order> orderList = OrderMapper.getAllUserOrders(user);
         return orderList;
     }
 }
